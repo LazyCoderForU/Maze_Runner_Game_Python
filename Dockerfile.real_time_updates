@@ -4,14 +4,17 @@ FROM python:3.10-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container
-COPY . /app
+# Copy the requirements file into the container
+COPY requirements.txt ./
 
-# Install dependencies required for the Flask-SocketIO app
-RUN pip install flask flask-socketio
+# Install dependencies required for the FastAPI app
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code into the container
+COPY real_time_updates.py ./
 
 # Expose the port the app runs on (5002)
 EXPOSE 5002
 
 # Define the command to run the application
-CMD ["python", "real_time_updates.py"]
+CMD ["uvicorn", "real_time_updates:app_sio", "--host", "0.0.0.0", "--port", "5002"]

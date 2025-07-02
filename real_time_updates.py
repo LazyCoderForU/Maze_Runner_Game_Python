@@ -1,14 +1,20 @@
-from flask import Flask
-from flask_socketio import SocketIO, emit
+import socketio
+from fastapi import FastAPI
 
-app = Flask(__name__)
-socketio = SocketIO(app)
+sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins='*')
+app = FastAPI()
+app_sio = socketio.ASGIApp(sio, other_asgi_app=app)
 
-# Example event for real-time updates
-@socketio.on('player_move')
-def handle_player_move(data):
-    # Placeholder logic for broadcasting player movement
-    emit('update_position', data, broadcast=True)
+@sio.event
+def connect(sid, environ):
+    print(f"Client connected: {sid}")
 
-if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5002)
+@sio.event
+def disconnect(sid):
+    print(f"Client disconnected: {sid}")
+
+@sio.on('player_move')
+async def handle_player_move(sid, data):
+    await sio.emit('update_position', data, skip_sid=sid)
+
+# To run: uvicorn real_time_updates:app_sio --host 0.0.0.0 --port 5002

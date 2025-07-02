@@ -1,20 +1,16 @@
-from flask import Flask, jsonify, request
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 
-app = Flask(__name__)
+app = FastAPI()
 
 # Example endpoint for user registration
-@app.route('/register', methods=['POST'])
-def register_user():
-    data = request.json
-    # Placeholder logic for user registration
-    return jsonify({"status": "User registered", "username": data.get("username")})
+@app.post("/register")
+async def register_user(request: Request):
+    data = await request.json()
+    return JSONResponse({"status": "User registered", "username": data.get("username")})
 
 # Example endpoint for user login
-@app.route('/login', methods=['POST'])
-def login_user():
-    data = request.json
-    # Placeholder logic for user login
-    return jsonify({"status": "User logged in", "username": data.get("username")})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+@app.post("/login")
+async def login_user(request: Request):
+    data = await request.json()
+    return JSONResponse({"status": "User logged in", "username": data.get("username")})

@@ -1,7 +1,7 @@
 # Maze Runner Game
 
 ## 📝 Description
-The Maze Runner Game is an interactive web-based game where players navigate through a randomly generated maze to reach the goal. It is built using a microservices architecture with Flask for the backend and a modern web interface for the frontend.
+The Maze Runner Game is an interactive web-based game where players navigate through a randomly generated maze to reach the goal. It is built using a microservices architecture with FastAPI for the backend and a modern web interface for the frontend.
 
 ### Key Features
 - **Random Maze Generation**: Each maze is randomly generated and validated to ensure a valid path exists.
@@ -58,7 +58,7 @@ docker-compose down
 
 ## 🧠 Tech Stack / Built With
 - **Languages**: Python, JavaScript
-- **Frameworks**: Flask, Flask-SocketIO
+- **Frameworks**: FastAPI, python-socketio
 - **Frontend**: HTML, CSS
 - **Containerization**: Docker, Docker Compose
 - **Version Control**: Git
@@ -115,7 +115,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Teaching Notes: Building the Maze Runner Game from Scratch
 
 ### **Objective**
-Teach students how to build a web-based interactive game using Python, Flask, Docker, and modern web technologies. The project will demonstrate the use of microservices architecture, containerization, and frontend-backend integration.
+Teach students how to build a web-based interactive game using Python, FastAPI, Docker, and modern web technologies. The project will demonstrate the use of microservices architecture, containerization, and frontend-backend integration.
 
 ---
 
@@ -124,7 +124,7 @@ Teach students how to build a web-based interactive game using Python, Flask, Do
 #### **1. Introduction to the Project**
 - Explain the objective of the Maze Runner Game:
   - A player navigates through a randomly generated maze to reach the goal.
-  - The game uses Flask for backend logic and HTML/CSS/JavaScript for the frontend.
+  - The game uses FastAPI for backend logic and HTML/CSS/JavaScript for the frontend.
   - Docker is used for containerization, and the project follows a microservices architecture.
 
 #### **2. Setting Up the Environment**
@@ -134,22 +134,22 @@ Teach students how to build a web-based interactive game using Python, Flask, Do
   python -m venv myvenv
   source myvenv/bin/activate  # On Windows: myvenv\Scripts\activate
   ```
-- **Install Flask and Dependencies**:
+- **Install FastAPI and Dependencies**:
   ```bash
-  pip install flask flask-socketio
+  pip install fastapi uvicorn[standard] python-socketio[asgi] jinja2
   ```
 
 #### **3. Backend Development**
 - **Game Logic Service**:
   - Create `game_logic.py` to handle maze generation, player movement, and game completion logic.
   - Implement random maze generation with validation to ensure a valid path exists.
-  - Use Flask to expose APIs for maze generation and player movement.
+  - Use FastAPI to expose APIs for maze generation and player movement.
 
 - **User Interaction Service**:
   - Create `user_interaction.py` to manage user registration and login (optional for this project).
 
 - **Real-Time Updates Service**:
-  - Create `real_time_updates.py` to enable real-time updates using Flask-SocketIO (optional for this project).
+  - Create `real_time_updates.py` to enable real-time updates using python-socketio and FastAPI (optional for this project).
 
 #### **4. Frontend Development**
 - **HTML Structure**:
@@ -193,8 +193,8 @@ Teach students how to build a web-based interactive game using Python, Flask, Do
 ---
 
 ### **Key Learning Outcomes**
-1. Understand the basics of Flask and how to build RESTful APIs.
-2. Learn how to integrate a frontend with a Flask backend.
+1. Understand the basics of FastAPI and how to build RESTful APIs.
+2. Learn how to integrate a frontend with a FastAPI backend.
 3. Gain hands-on experience with Docker and Docker Compose.
 4. Understand the principles of microservices architecture.
 5. Learn how to validate and test a web application.
@@ -202,7 +202,7 @@ Teach students how to build a web-based interactive game using Python, Flask, Do
 ---
 
 ### **Additional Resources**
-- [Flask Documentation](https://flask.palletsprojects.com/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Docker Documentation](https://docs.docker.com/)
 - [HTML/CSS/JavaScript Tutorials](https://developer.mozilla.org/)
 
@@ -213,4 +213,4 @@ Teach students how to build a web-based interactive game using Python, Flask, Do
 2. Add a scoring system to track the number of moves.
 3. Implement user authentication in the `user_interaction` service.
 4. Enhance the maze generation algorithm for more complex mazes.
-5. Add real-time multiplayer functionality using Flask-SocketIO.
+5. Add real-time multiplayer functionality using python-socketio and FastAPI.
