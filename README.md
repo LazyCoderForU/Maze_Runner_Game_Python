@@ -1,13 +1,15 @@
 # Maze Runner Game
 
 ## 📝 Description
-The Maze Runner Game is an interactive web-based game where players navigate through a randomly generated maze to reach the goal. It is built using a microservices architecture with FastAPI for the backend and a modern web interface for the frontend.
+The Maze Runner Game is an interactive web-based game built with Streamlit where players navigate through a randomly generated maze to reach the goal. Features user registration, leaderboards, and real-time gameplay.
 
 ### Key Features
-- **Random Maze Generation**: Each maze is randomly generated and validated to ensure a valid path exists.
-- **Interactive Gameplay**: Players can use arrow keys or on-screen buttons to navigate the maze.
-- **Real-Time Feedback**: Provides feedback for invalid moves and congratulates the player upon reaching the goal.
-- **Modern UI**: Clean and responsive design for an enhanced user experience.
+- **Random Maze Generation**: Each maze is randomly generated and validated to ensure a valid path exists
+- **Interactive Gameplay**: Players can use arrow buttons to navigate the maze
+- **User Management**: Register and login to track your progress
+- **Leaderboard**: Compete with others and track your best scores
+- **Real-Time Stats**: Track moves and time during gameplay
+- **Modern UI**: Clean and responsive Streamlit interface
 
 ---
 
@@ -15,7 +17,7 @@ The Maze Runner Game is an interactive web-based game where players navigate thr
 
 ### Prerequisites
 - Python 3.10 or later
-- Docker and Docker Compose
+- Docker and Docker Compose (optional)
 
 ### Steps
 1. Clone the repository:
@@ -23,43 +25,72 @@ The Maze Runner Game is an interactive web-based game where players navigate thr
    git clone https://github.com/yourusername/maze-runner-game.git
    cd maze-runner-game
    ```
-2. Build and start the application:
+
+2. **Option 1: Run with Python**
+   ```bash
+   # Create virtual environment
+   python -m venv myvenv
+   
+   # Activate virtual environment
+   # Windows:
+   myvenv\Scripts\activate
+   # macOS/Linux:
+   source myvenv/bin/activate
+   
+   # Install dependencies
+   pip install -r requirements.txt
+   
+   # Run the app
+   streamlit run app.py
+   ```
+
+3. **Option 2: Run with Docker**
    ```bash
    docker-compose up --build
    ```
-3. Access the game in your browser:
-   [http://localhost:5000](http://localhost:5000)
+
+4. Access the game in your browser:
+   - Python: [http://localhost:8501](http://localhost:8501)
+   - Docker: [http://localhost:8501](http://localhost:8501)
 
 ---
 
 ## 📦 Usage
 
 ### Running the Game
-1. Start the application:
+1. **With Python:**
+   ```bash
+   streamlit run app.py
+   ```
+
+2. **With Docker:**
    ```bash
    docker-compose up
    ```
-2. Navigate to [http://localhost:5000](http://localhost:5000) in your browser.
-3. Use arrow keys or on-screen buttons to navigate the maze.
-4. Reach the goal (`G`) to complete the game.
+
+3. **Playing the Game:**
+   - Enter your username and register/login
+   - Click "Generate New Maze" to start
+   - Use arrow buttons to navigate
+   - Reach the goal (🏁) to win!
 
 ### Stopping the Application
-Press `Ctrl+C` in the terminal and run:
-```bash
-docker-compose down
-```
+- **Python**: Press `Ctrl+C` in the terminal
+- **Docker**: Press `Ctrl+C` and run `docker-compose down`
 
 ---
 
-## 🖼️ Screenshots / Demo
-![Maze Runner Game Screenshot](path/to/screenshot.png)
+## 🎮 Game Controls
+- **⬆️ ⬇️ ⬅️ ➡️**: Move player
+- **🎲 Generate New Maze**: Create a new random maze
+- **🔄 Reset Game**: Reset current game state
+- **Maze Size Slider**: Adjust difficulty (5x5 to 15x15)
 
 ---
 
 ## 🧠 Tech Stack / Built With
-- **Languages**: Python, JavaScript
-- **Frameworks**: FastAPI, python-socketio
-- **Frontend**: HTML, CSS
+- **Language**: Python
+- **Framework**: Streamlit
 - **Containerization**: Docker, Docker Compose
 - **Version Control**: Git
 
@@ -68,31 +99,45 @@ docker-compose down
 ## 📂 Project Structure
 ```
 .
-├── docker-compose.yml
-├── Dockerfile.game_logic
-├── Dockerfile.real_time_updates
-├── Dockerfile.user_interaction
-├── game_logic.py
-├── real_time_updates.py
-├── user_interaction.py
-├── templates/
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-├── myvenv/
-│   ├── Scripts/
-│   ├── Lib/
-│   ├── Include/
+├── app.py                    # Main Streamlit application
+├── requirements.txt          # Python dependencies
+├── docker-compose.yml        # Docker compose configuration
+├── Dockerfile.game_logic     # Docker configuration
+├── README.md                # Project documentation
+└── myvenv/                  # Virtual environment
 ```
+
+---
+
+## 🏆 Features
+
+### Game Features
+- **Maze Generation**: Algorithmically generated mazes with guaranteed solutions
+- **Player Movement**: Smooth navigation with collision detection
+- **Win Condition**: Reach the goal to complete the maze
+- **Move Counter**: Track efficiency with move counting
+- **Timer**: Race against time for better scores
+
+### User Features
+- **User Registration**: Create an account to save progress
+- **User Login**: Return to continue your gaming journey
+- **Personal Stats**: View your gaming statistics
+- **Leaderboard**: Compete with other players globally
+
+### Technical Features
+- **Responsive Design**: Works on desktop and mobile devices
+- **Real-time Updates**: Live game state management
+- **Session Management**: Persistent user sessions
+- **Error Handling**: Robust error handling and user feedback
 
 ---
 
 ## 🙌 Contributing
 Contributions are welcome! To contribute:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push them to your fork.
-4. Submit a pull request.
+1. Fork the repository
+2. Create a new branch for your feature or bug fix
+3. Commit your changes and push them to your fork
+4. Submit a pull request
 
 ---
 
@@ -109,108 +154,72 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ---
 
 ## 🌐 Links
+- [Streamlit Documentation](https://docs.streamlit.io/)
 - [Deployed Application](http://example.com)
-- [API Documentation](http://example.com/api-docs)
-
-## Teaching Notes: Building the Maze Runner Game from Scratch
-
-### **Objective**
-Teach students how to build a web-based interactive game using Python, FastAPI, Docker, and modern web technologies. The project will demonstrate the use of microservices architecture, containerization, and frontend-backend integration.
 
 ---
 
-### **Lesson Plan**
+## 🚀 Deployment
 
-#### **1. Introduction to the Project**
-- Explain the objective of the Maze Runner Game:
-  - A player navigates through a randomly generated maze to reach the goal.
-  - The game uses FastAPI for backend logic and HTML/CSS/JavaScript for the frontend.
-  - Docker is used for containerization, and the project follows a microservices architecture.
+### Deploy to Streamlit Cloud
+1. Push your code to GitHub
+2. Visit [share.streamlit.io](https://share.streamlit.io/)
+3. Connect your GitHub repository
+4. Deploy with one click!
 
-#### **2. Setting Up the Environment**
-- **Install Python**: Ensure Python 3.10 or later is installed.
-- **Set Up a Virtual Environment**:
-  ```bash
-  python -m venv myvenv
-  source myvenv/bin/activate  # On Windows: myvenv\Scripts\activate
-  ```
-- **Install FastAPI and Dependencies**:
-  ```bash
-  pip install fastapi uvicorn[standard] python-socketio[asgi] jinja2
-  ```
-
-#### **3. Backend Development**
-- **Game Logic Service**:
-  - Create `game_logic.py` to handle maze generation, player movement, and game completion logic.
-  - Implement random maze generation with validation to ensure a valid path exists.
-  - Use FastAPI to expose APIs for maze generation and player movement.
-
-- **User Interaction Service**:
-  - Create `user_interaction.py` to manage user registration and login (optional for this project).
-
-- **Real-Time Updates Service**:
-  - Create `real_time_updates.py` to enable real-time updates using python-socketio and FastAPI (optional for this project).
-
-#### **4. Frontend Development**
-- **HTML Structure**:
-  - Create `index.html` to serve as the main game interface.
-  - Use a grid layout to represent the maze.
-
-- **CSS Styling**:
-  - Add `styles.css` for modern and responsive design.
-  - Style the maze, player, and goal cells for better visual appeal.
-
-- **JavaScript Logic**:
-  - Add `script.js` to handle player movement and integrate with backend APIs.
-  - Use `fetch` to dynamically load the maze and update the game state.
-
-#### **5. Containerization with Docker**
-- **Create Dockerfiles**:
-  - Write separate Dockerfiles for each microservice (`game-logic`, `user-interaction`, `real-time-updates`).
-  - Use Python base images and install necessary dependencies.
-
-- **Set Up Docker Compose**:
-  - Write `docker-compose.yml` to orchestrate the services.
-  - Map ports for each service to the host machine.
-
-#### **6. Running the Application**
-- **Build and Start the Containers**:
-  ```bash
-  docker-compose up --build
-  ```
-- **Access the Game**:
-  - Open [http://localhost:5000](http://localhost:5000) in a browser to play the game.
-
-#### **7. Testing and Debugging**
-- Test the maze generation to ensure a valid path exists.
-- Test player movement and game completion logic.
-- Debug any issues with containerization or API integration.
-
-#### **8. Deployment (Optional)**
-- Deploy the application to a cloud platform (e.g., AWS, Azure, or Google Cloud).
-- Use Docker images for easy deployment.
+### Deploy to Heroku
+1. Create a `Procfile`:
+   ```
+   web: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
+   ```
+2. Deploy using Heroku CLI or GitHub integration
 
 ---
 
-### **Key Learning Outcomes**
-1. Understand the basics of FastAPI and how to build RESTful APIs.
-2. Learn how to integrate a frontend with a FastAPI backend.
-3. Gain hands-on experience with Docker and Docker Compose.
-4. Understand the principles of microservices architecture.
-5. Learn how to validate and test a web application.
+## 📚 Algorithm Details
+
+### Maze Generation
+The maze generation uses a randomized approach with validation:
+1. Generate random 2D array with walls (1) and paths (0)
+2. Ensure start (0,0) and goal (n-1,n-1) are paths
+3. Validate path exists using Depth-First Search (DFS)
+4. Regenerate if no valid path found
+
+### Path Validation
+Uses DFS algorithm to ensure solvability:
+- Start from position (0,0)
+- Explore all possible paths
+- Check if goal position (n-1,n-1) is reachable
+- Return true if path exists, false otherwise
 
 ---
 
-### **Additional Resources**
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Docker Documentation](https://docs.docker.com/)
-- [HTML/CSS/JavaScript Tutorials](https://developer.mozilla.org/)
+## 🎯 Future Enhancements
+- [ ] Multiple difficulty levels
+- [ ] Different maze generation algorithms
+- [ ] Multiplayer support
+- [ ] Power-ups and obstacles
+- [ ] Mobile app version
+- [ ] Sound effects and animations
+- [ ] Tournament mode
+- [ ] Social features (friend challenges)
 
 ---
 
-### **Suggested Exercises for Students**
-1. Modify the maze dimensions and test the game.
-2. Add a scoring system to track the number of moves.
-3. Implement user authentication in the `user_interaction` service.
-4. Enhance the maze generation algorithm for more complex mazes.
-5. Add real-time multiplayer functionality using python-socketio and FastAPI.
+## 🐛 Known Issues
+- None currently reported
+
+---
+
+## 📞 Support
+If you encounter any issues or have questions:
+1. Check the existing issues on GitHub
+2. Create a new issue with detailed description
+3. Contact the maintainers
+
+---
+
+## 🎉 Acknowledgments
+- Thanks to the Streamlit team for the amazing framework
+- Inspired by classic maze games
+- Community feedback and contributions

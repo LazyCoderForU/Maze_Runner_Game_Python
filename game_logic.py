@@ -21,7 +21,7 @@ def is_valid_maze(maze):
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 0 and (nx, ny) not in visited:
+            if 0 <= nx < rows and 0 <= ny < cols and maze[ny][nx] == 0 and (nx, ny) not in visited:
                 if dfs(nx, ny, visited):
                     return True
         return False
