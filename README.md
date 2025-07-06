@@ -175,6 +175,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 2. Deploy using Heroku CLI or GitHub integration
 
 ---
+<<<<<<< HEAD
 
 ## 📚 Algorithm Details
 
@@ -223,3 +224,5 @@ If you encounter any issues or have questions:
 - Thanks to the Streamlit team for the amazing framework
 - Inspired by classic maze games
 - Community feedback and contributions
+=======
+>>>>>>> 6afb01a39a41d4ac08d1e8c2f5aaa6e65752f2f3
