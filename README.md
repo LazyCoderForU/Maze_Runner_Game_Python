@@ -139,43 +139,7 @@ Contributions are welcome! To contribute:
 3. Commit your changes and push them to your fork
 4. Submit a pull request
 
----
 
-## 📄 License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-## 👨‍💻 Author
-- **Your Name**
-- GitHub: [yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
----
-
-## 🌐 Links
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [Deployed Application](http://example.com)
-
----
-
-## 🚀 Deployment
-
-### Deploy to Streamlit Cloud
-1. Push your code to GitHub
-2. Visit [share.streamlit.io](https://share.streamlit.io/)
-3. Connect your GitHub repository
-4. Deploy with one click!
-
-### Deploy to Heroku
-1. Create a `Procfile`:
-   ```
-   web: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
-   ```
-2. Deploy using Heroku CLI or GitHub integration
-
----
-<<<<<<< HEAD
 
 ## 📚 Algorithm Details
 
@@ -225,4 +189,3 @@ If you encounter any issues or have questions:
 - Inspired by classic maze games
 - Community feedback and contributions
 =======
->>>>>>> 6afb01a39a41d4ac08d1e8c2f5aaa6e65752f2f3
